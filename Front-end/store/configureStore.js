@@ -14,7 +14,6 @@ const createStore = () => {
     middleware,
     devTools: isDev,
   });
-	let a = 1;
   return store;
 };
 
