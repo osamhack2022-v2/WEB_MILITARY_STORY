@@ -297,28 +297,109 @@
 > ### posts.js
 > #### 여러개의 게시글을 가져옵니다.
 > ### GET /posts
-> hidden_mode가 false이고 특정 게시판에 속한 lastId보다 id값이 작은 게시물들을 10개 가져옵니다.
-> 
+> hidden_mode가 false이고 특정 게시판에 속한 lastId보다 id값이 작은 게시물들을 10개 가져옵니다.(최신순으로 post 가져오기)
+> #### req.query
+> |query|타입|설명|비고|
+> |-----|---|----|----|
+> |lasatId|INTEGER|프론트 엔드 상에서 나타나 있는 가장 마지막 게시글의 id입니다.|NULLABLE|
+> |category|STRING|어떤 게시판의 글을 가져올 것인지 나타냅니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |---|-----|
+> |ARRAY(POST)|특정 게시판의 글을 최신순으로 10개를 반환합니다.|
 > ### GET /posts/hot
+> 좋아요 수가 3개 이상인 글을 가져옵니다.
+> #### res
+> |타입|설명|
+> |ARRAY(POST)|게시판에 상관없이 좋아요 수가 3개 이상인 게시글 10개를 최신순으로 반환합니다.|
 > ### GET /posts/popular
+> 좋아요 수가 3개 이상인 글을 가져옵니다.
+> ### res
+> |타입|설명|
+> |ARRAY(POST)|게시판에 상관없이 좋아요 수가 3개 이상인 게시글 3개를 최신순으로 반환합니다.|
 > ### GET /posts/related
+> 내가 팔로우한 사용자들의 게시글을 가져옵니다.
+> #### req.query
+> |query|타입|설명|비고|
+> |-----|---|----|----|
+> |lastId|INTEGER|프론트 엔드 상에서 나타나 있는 가장 마지막 게시글의 id입니다.|NULLABLE|
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> #### res
+> |타입|설명|
+> |ARRAY(POST)|내가 팔로우 한 사용자의 게시글을 최신순으로 10개 가져옵니다.|
 > ### user.js
 > #### user정보와 관련된 정보를 처리합니다.
 > ### GET /user
+> 내 정보를 가져옵니다.
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인 한 사용자의 id입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |--|--|
+> |USER|내 정보에서 비밀번호를 제외한 정보를 가져옵니다.|
 > ### PATCH /user/editVacation
+> 나의 휴가정보를 수정합니다.
+> #### req.body
+> |body|타입|설명|비고|
+> |----|----|----|----|
+> |category|STRING|어떤 휴가를 받았는지를 나타냅니다.(포상휴가, 위로휴가 등)|NOT NULL|
+> |reason|STRING|휴가를 받은 사유입니다.|NOT NULL|
+> |num_of_days|INTEGER|휴가 받은 일수입니다.|NOT NULL|
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> #### res
+> |타입|설명|
+> |--|--|
+> |USER|내 정보에서 비밀번호를 제외한 정보를 가져옵니다.|
 > ### GET /user/comments
+> 내가 댓글을 단 게시글을 가져옵니다.
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> #### res
+> |타입|설명|
+> |--|--|
+> |ARRAY(POST)|내가 댓글을 단 게시글 정보를 가져옵니다.|
 > ### GET /user/scrap
+> 내가 스크랩한 게시글을 가져옵니다.
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> #### res
+> |타입|설명|
+> |---|----|
+> |ARRAY(POST)|스크랩한 게시글을 가져옵니다.|
 > ### GET /user/followers
+> 나의 팔로워들을 조회합니다.
 > ### GET /user/followings
+> 나의 팔로잉 사용자를 조회합니다.
 > ### GET /user/:userId
+> 특정 사용자의 정보를 가져옵니다.
 > ### GET /user/me/posts
+> 내가 업로드한 게시글을 가져옵니다.
 > ### GET /user/:userId/posts
+> 특정 사용자의 게시글을 가져옵니다.
 > ### POST /user/login
+> 로그인합니다.
 > ### PATCH /user/editDate
+> 나의 입대일 또는 전역일을 수정합니다.
 > ### POST /user
+> 회원가입합니다.
 > ### PATCH /user/nickname
+> 나의 닉네임을 수정합니다.
 > ### PATCH /user/:userId/following
+> 특정 유저를 팔로잉합니다.
 > ### DELETE /user/:userId/following
+> 특정 유저의 팔로잉을 취소합니다.
 > ### DELETE /user/follower/:userId
 ### 'passport'
 > #### index.js
@@ -328,5 +409,3 @@
 ### 'config'
 > #### config.js
 > #### db 관련 configuration을 나타냅니다.
-
-## api 문서
