@@ -16,21 +16,21 @@
 
 ## DB 모델
 ### User 
-#### 사용자를 나타냅니다.
+#### 유저를 나타냅니다.
 |이름|타입|설명|비고|
 |----|---|----|----|
-|id|INTEGER|사용자들을 구분해줍니다.|PRIMARY_KEY, AUTO_INCREMENT, NOT NULL|
-|email|varchar(30)|사용자의 email입니다.|UNIQUE, NOT NULL|
-|nickname|varchar(30)|사용자의 Military Story 활동명입니다.|NOT NULL|
-|password|varchar(100)|사용자의 비밀번호입니다.(bcrypt 모듈로 암호화됩니다.)|NOT NULL|
+|id|INTEGER|유저들을 구분해줍니다.|PRIMARY_KEY, AUTO_INCREMENT, NOT NULL|
+|email|varchar(30)|유저의 email입니다.|UNIQUE, NOT NULL|
+|nickname|varchar(30)|유저의 Military Story 활동명입니다.|NOT NULL|
+|password|varchar(100)|유저의 비밀번호입니다.(bcrypt 모듈로 암호화됩니다.)|NOT NULL|
 |followers|INTEGER|팔로워 수입니다.|NOT NULL|
-|annual|INTEGER|사용자의 연가 일수입니다.|NOT NULL|
-|reward|INTEGER|사용자의 보상휴가 일수입니다.|NOT NULL|
-|compensation|INTEGER|사용자의 포상휴가 일수입니다.|NOT NULL|
-|consolation|INTEGER|사용자의 위로휴가 일수입니다.|NOT NULL|
-|petition|INTEGER|사용자의 청원휴가 일수입니다.|NOT NULL|
-|start_date|DATE|사용자의 입대일입니다.|NOT NULL|
-|end_date|DATE|사용자의 전역일입니다.|NOT NULL|
+|annual|INTEGER|유저의 연가 일수입니다.|NOT NULL|
+|reward|INTEGER|유저의 보상휴가 일수입니다.|NOT NULL|
+|compensation|INTEGER|유저의 포상휴가 일수입니다.|NOT NULL|
+|consolation|INTEGER|유저의 위로휴가 일수입니다.|NOT NULL|
+|petition|INTEGER|유저의 청원휴가 일수입니다.|NOT NULL|
+|start_date|DATE|유저의 입대일입니다.|NOT NULL|
+|end_date|DATE|유저의 전역일입니다.|NOT NULL|
 
 ### Post
 #### 게시글을 나타냅니다.
@@ -61,21 +61,21 @@
 |id|INTEGER|해시태그들을 구분해줍니다.|PRIMARY_KEY, AUTO_INCREMENT, NOT NULL|
 |name|varchar(20)|해시태그입니다.|NOT NULL|
 ### Userid
-#### 게시글에 익명 댓글을 작성한 사용자들의 id를 나타냅니다, Post에 1대n 관계로 사용자들의 id가 배열 형태로 저장될 수 있도록 했습니다.
+#### 게시글에 익명 댓글을 작성한 유저들의 id를 나타냅니다, Post에 1대n 관계로 유저들의 id가 배열 형태로 저장될 수 있도록 했습니다.
 |이름|타입|설명|비고|
 |----|----|---|---|
 |id|INTEGER|Userid들을 구분해줍니다.|PRIMARY_KEY, AUTO_INCREMENT, NOT NULL|
-|my_id|INTEGER|게시글에 익명댓글을 작성한 사용자의 id입니다.|NOT NULL|
+|my_id|INTEGER|게시글에 익명댓글을 작성한 유저의 id입니다.|NOT NULL|
 |PostId(←Post)|INTEGER|Userid가 속한 게시글의 ID입니다.|NULLABLE, FOREIGN_KEY|
 ### Record
-#### 사용자의 휴가기록을 나타냅니다.
+#### 유저의 휴가기록을 나타냅니다.
 |이름|타입|설명|비고|
 |---|----|----|----|
 |id|INTEGER|Record들을 구분해주는 id입니다.|PRIMARY_KEY, AUTO_INCREMENT, NOT NULL|
 |category|INTEGER|포상휴가, 위로휴가 같이 휴가의 종류를 나타냅니다.|NOT NULL|
 |reason|varchar(300)|휴가의 사유를 적습니다.|NOT NULL|
 |num_of_days|INTEGER|휴가 일수를 적습니다.|NOT NULL|
-|UserId(←User)|INTEGER|휴가 기록의 사용자의 ID를 나타냅니다.|NULLABLE, FOREIGN_KEY|
+|UserId(←User)|INTEGER|휴가 기록의 유저의 ID를 나타냅니다.|NULLABLE, FOREIGN_KEY|
 ### Image
 #### 게시글의 이미지를 나타냅니다.
 |이름|타입|설명|비고|
@@ -88,22 +88,22 @@
 #### User간의 following, follower 관계를 나타냅니다.
 |이름|타입|설명|비고|
 |---|----|----|---|
-|FollowingId|INTEGER|팔로잉 된 사용자의 Id|NOT NULL, FOREIGN_KEY|
-|FollwerId|INTEGER|팔로잉 한 사용자의 Id |NOT NULL, FOREIGN_KEY| 
+|FollowingId|INTEGER|팔로잉 된 유저의 Id|NOT NULL, FOREIGN_KEY|
+|FollwerId|INTEGER|팔로잉 한 유저의 Id |NOT NULL, FOREIGN_KEY| 
 
 ### Like
 #### User와 Post간의 Liked, Liker 관계를 나타냅니다.
 |이름|타입|설명|비고|
 |---|----|----|---|
 |PostId|INTEGER|좋아요 된 게시글의 Id.|NOT NULL, FOREIGN_KEY|
-|UserId|INTEGER|좋아요 한 사용자의 Id.|NOT NULL, FOREIGN+KEY|
+|UserId|INTEGER|좋아요 한 유저의 Id.|NOT NULL, FOREIGN+KEY|
 
 ### Scrap
 #### User와 Post간의 Scrapper Scrapped 관계를 나타냅니다.
 |이름|타입|설명|비고|
 |---|----|----|---|
 |PostId|INTEGER|스크랩 된 게시글의 Id.|NOT NULL, FOREIGN_KEY|
-|UserId|INTEGER|스크랩한 사용자의 Id.|NOT NULL, FOREIGN_KEY|
+|UserId|INTEGER|스크랩한 유저의 Id.|NOT NULL, FOREIGN_KEY|
 
 ### PostHashtag
 #### Post와 Hashtag간의 관계를 나타냅니다.
@@ -181,7 +181,7 @@
 > |이름|타입|설명|
 > |----|---|----|
 > |PostId|INTEGER|스크랩된 게시글의 id를 반환합니다.|
-> |UserId|INTEGER|스크랩한 사용자의 id를 반환합니다.|
+> |UserId|INTEGER|스크랩한 유저의 id를 반환합니다.|
 > ### DELETE /post/:postId/scrap
 > id가 postId인 게시글에 대한 스크랩을 취소합니다.
 > #### req.params
@@ -192,7 +192,7 @@
 > |이름|타입|설명|
 > |----|---|----|
 > |PostId|INTEGER|스크랩이 취소된 게시글의 id를 반환합니다.|
-> |UserId|INTEGER|스크랩 취소한 사용자의 id를 반환합니다.|
+> |UserId|INTEGER|스크랩 취소한 유저의 id를 반환합니다.|
 > ### POST /post/:postId/comment
 > id가 postId인 게시글에 댓글을 추가합니다.
 > #### req.params
@@ -208,7 +208,7 @@
 > #### req.user
 > |user|타입|설명|비고|
 > |----|---|----|----|
-> |id|INTEGER|로그인한 사용자의 id입니다.|NOT NULL|
+> |id|INTEGER|로그인한 유저의 id입니다.|NOT NULL|
 > #### res
 > |타입|설명|
 > |---|----|
@@ -251,7 +251,7 @@
 > |타입|설명|
 > |---|----|
 > |PostId|좋아요된 게시글 id|
-> |UserId|좋아요 한 사용자 id|
+> |UserId|좋아요 한 유저 id|
 > ### DELETE /post/:postId/like
 > id를 postId로 하는 게시글에 대한 좋아요를 취소합니다.
 > #### req.params
@@ -267,7 +267,7 @@
 > |타입|설명|
 > |---|----|
 > |PostId|좋아요 취소된 게시글 id|
-> |UserId|좋아요 취소한 사용자 id|
+> |UserId|좋아요 취소한 유저 id|
 > ### PATCH /post/:postId
 > id를 postId로 하는 게시글을 수정합니다.
 > #### req.body
@@ -318,7 +318,7 @@
 > |타입|설명|
 > |ARRAY(POST)|게시판에 상관없이 좋아요 수가 3개 이상인 게시글 3개를 최신순으로 반환합니다.|
 > ### GET /posts/related
-> 내가 팔로우한 사용자들의 게시글을 가져옵니다.
+> 내가 팔로우한 유저들의 게시글을 가져옵니다.
 > #### req.query
 > |query|타입|설명|비고|
 > |-----|---|----|----|
@@ -326,10 +326,10 @@
 > #### req.user
 > |user|타입|설명|비고|
 > |----|---|----|----|
-> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> |id|INTEGER|로그인 한 유저의 id|NOT NULL|
 > #### res
 > |타입|설명|
-> |ARRAY(POST)|내가 팔로우 한 사용자의 게시글을 최신순으로 10개 가져옵니다.|
+> |ARRAY(POST)|내가 팔로우 한 유저의 게시글을 최신순으로 10개 가져옵니다.|
 > ### user.js
 > #### user정보와 관련된 정보를 처리합니다.
 > ### GET /user
@@ -337,7 +337,7 @@
 > #### req.user
 > |user|타입|설명|비고|
 > |----|---|----|----|
-> |id|INTEGER|로그인 한 사용자의 id입니다.|NOT NULL|
+> |id|INTEGER|로그인 한 유저의 id입니다.|NOT NULL|
 > #### res
 > |타입|설명|
 > |--|--|
@@ -353,7 +353,7 @@
 > #### req.user
 > |user|타입|설명|비고|
 > |----|---|----|----|
-> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> |id|INTEGER|로그인 한 유저의 id|NOT NULL|
 > #### res
 > |타입|설명|
 > |--|--|
@@ -363,7 +363,7 @@
 > #### req.user
 > |user|타입|설명|비고|
 > |----|---|----|----|
-> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> |id|INTEGER|로그인 한 유저의 id|NOT NULL|
 > #### res
 > |타입|설명|
 > |--|--|
@@ -373,34 +373,134 @@
 > #### req.user
 > |user|타입|설명|비고|
 > |----|---|----|----|
-> |id|INTEGER|로그인 한 사용자의 id|NOT NULL|
+> |id|INTEGER|로그인 한 유저의 id|NOT NULL|
 > #### res
 > |타입|설명|
 > |---|----|
 > |ARRAY(POST)|스크랩한 게시글을 가져옵니다.|
 > ### GET /user/followers
 > 나의 팔로워들을 조회합니다.
+> #### req.query
+> |query|타입|설명|비고|
+> |-----|----|---|----|
+> |limit|INTEGER|몇명의 팔로워들을 가져올지 정합니다.|NOT NULL|
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인한 유저의 id입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |ARRAY(USER)|팔로워들의 정보입니다.|
+> 
 > ### GET /user/followings
-> 나의 팔로잉 사용자를 조회합니다.
+> 나의 팔로잉 유저를 조회합니다.
+> #### req.query
+> |query|타입|설명|비고|
+> |-----|----|---|----|
+> |limit|INTEGER|몇명의 팔로잉한 유저들을 가져올지 정합니다.|NOT NULL|
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인한 유저의 id입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |ARRAY(USER)|팔로잉한 유저들의 정보입니다.|
 > ### GET /user/:userId
-> 특정 사용자의 정보를 가져옵니다.
+> 특정 유저의 정보를 가져옵니다.
+> #### req.params
+> |params|타입|설명|비고|
+> |-----|----|----|----|
+> |UserId|INTEGER|유저의 id입니다.NOT NULL|
+> #### res
+> |타입|설명|
+> |USER|특정 유저의 정보입니다.|
 > ### GET /user/me/posts
 > 내가 업로드한 게시글을 가져옵니다.
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인한 유저의 id입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |ARRAY(POST)|나의 게시글을 가져옵니다.|
 > ### GET /user/:userId/posts
-> 특정 사용자의 게시글을 가져옵니다.
+> 특정 유저의 게시글을 가져옵니다.
+> #### req.params
+> |params|타입|설명|비고|
+> |-----|----|----|----|
+> |UserId|INTEGER|유저의 id입니다.NOT NULL|
+> #### req.query
+> |query|타입|설명|비고|
+> |-----|---|----|----|
+> |lastId|INTEGER|프론트 엔드 상에서 나타나 있는 가장 마지막 게시글의 id입니다.|NULLABLE|
+> #### res
+> |타입|설명|
+> |ARRAY(POST)|특정 유저의 게시글을 가져옵니다.|
 > ### POST /user/login
 > 로그인합니다.
+> #### req.body
+> |body|타입|설명|비고|
+> |----|---|---|----|
+> |email|STRING|로그인 이메일입니다.|NOT NULL|
+> |password|STRING|로그인 비밀번호입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |--|--|
+> |USER|내 정보에서 비밀번호를 제외한 정보를 가져옵니다.|
 > ### PATCH /user/editDate
 > 나의 입대일 또는 전역일을 수정합니다.
+> #### req.body
+> |body|타입|설명|비고|
+> |----|---|---|----|
+> |start_date|DATE|입대일입니다.|NOT NULL|
+> |end_date|DATE|전역일입니다. | NOT NULL|
+> #### req.user
+> |user|타입|설명|비고|
+> |----|---|----|----|
+> |id|INTEGER|로그인한 유저의 id입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |--|--|
+> |USER|내 정보에서 비밀번호를 제외한 정보를 가져옵니다.|
 > ### POST /user
 > 회원가입합니다.
+> #### req.body
+> |body|타입|설명|비고|
+> |----|----|---|----|
+> |email|STRING|email입니다.|NOT NULL|
+> |nickname|STRING|닉네임입니다.|NOT NULL|
+> |password|STRING|비밀번호입니다.|NOT NULL|
+> |start_date|DATE|입대일입니다.|NOT NULL|
+> |end_date|DATE|전역일입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |---|----|
+> |STRING|'ok'|
+> ### POST /user/logout
+> 로그아웃합니다.
+> #### res
+> |타입|설명|
+> |---|----|
+> |STRING|'ok'|
+>
 > ### PATCH /user/nickname
 > 나의 닉네임을 수정합니다.
+> #### req.body
+> |body|타입|설명|비고|
+> |----|----|---|----|
+> |nickname|STRING|닉네임입니다.|NOT NULL|
+> #### res
+> |타입|설명|
+> |----|----|
+> |STRING|nickname을 반환합니다.|
 > ### PATCH /user/:userId/following
 > 특정 유저를 팔로잉합니다.
+> #### res.params
+> 
 > ### DELETE /user/:userId/following
 > 특정 유저의 팔로잉을 취소합니다.
-> ### DELETE /user/follower/:userId
+> #### res.params
+> 
 ### 'passport'
 > #### index.js
 > ##### 이미 로그인 한 유저의 정보를 다룹니다.

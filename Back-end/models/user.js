@@ -1,7 +1,7 @@
 const DataTypes = require('sequelize');
 const { Model } = DataTypes;
 
-module.exports = class Post extends Model {
+module.exports = class User extends Model {
   static init(sequelize) {
     return super.init(
       {

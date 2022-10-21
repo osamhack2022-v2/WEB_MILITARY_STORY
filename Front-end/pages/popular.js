@@ -15,7 +15,7 @@ import styled from 'styled-components';
 const TitleDiv = styled.div`
   marginbottom: 10px;
   position: relative;
-  border: 3px solid #2F9658;
+  border: 3px solid #2f9658;
   margin: 0px -2px;
   width: 100%;
   padding-top: 5px;
@@ -63,7 +63,7 @@ const Home = () => {
 
   return (
     <AppLayout>
-			<br/>
+      <br />
       <TitleDiv>인기 게시물 페이지</TitleDiv>
       {popularPosts.map((post) => (
         <PostCard key={post.id} post={post} />

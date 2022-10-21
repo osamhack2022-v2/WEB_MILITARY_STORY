@@ -64,7 +64,7 @@ const User = () => {
     } else {
       return (
         <Link href={`/user/${info.id}`}>
-          <a style={{ textDecoration: 'none'}} >
+          <a style={{ textDecoration: 'none' }}>
             <Avatar sx={{ bgcolor: 'grey' }} aria-label="recipe">
               {info.nickname[0]}
             </Avatar>

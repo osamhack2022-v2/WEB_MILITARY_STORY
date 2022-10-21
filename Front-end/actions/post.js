@@ -407,27 +407,29 @@ export const loadStartMyPosts = createAsyncThunk(
 );
 
 export const loadStartFollowingsPosts = createAsyncThunk(
-	'user/loadStartFollowingsPosts',
-	async (data, { rejectWithValue }) => {
-		try {
-			const response = await axios.get(`/posts/related?lastId=${data?.lastId || 0}`);
-			return response.data;
-		}
-		catch(error){
-			return rejectWithValue(error.response.data);
-		}
-	}
-)
+  'user/loadStartFollowingsPosts',
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `/posts/related?lastId=${data?.lastId || 0}`
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 export const loadFollowingsPosts = createAsyncThunk(
-	'user/loadFollowingsPosts',
-	async (data, { rejectWithValue }) => {
-		try {
-			const response = await axios.get(`/posts/related?lastId=${data?.lastId || 0}`);
-			return response.data;
-		}
-		catch(error){
-			return rejectWithValue(error.response.data);
-		}
-	}
-)
+  'user/loadFollowingsPosts',
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `/posts/related?lastId=${data?.lastId || 0}`
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);

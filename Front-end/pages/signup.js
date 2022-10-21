@@ -89,7 +89,7 @@ const Signup = () => {
         end_date: value2?.$d,
       })
     );
-		Router.push('/').then();
+    Router.push('/').then();
   }, [email, password, passwordCheck, term]);
 
   return (

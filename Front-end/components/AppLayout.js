@@ -120,7 +120,7 @@ const InfoDiv = styled('div')(({ theme }) => ({
 
 const LeftDiv = styled('div')(({ theme }) => ({
   float: 'right',
-	width: '100%'
+  width: '100%',
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -176,7 +176,7 @@ function Home({ children }) {
     <StyledBox onClick={handleDrawerToggle}>
       <StyledTypography variant="h6">
         <Link href="/">
-          <a style ={{ textDecoration: 'none', color:'black' }}>
+          <a style={{ textDecoration: 'none', color: 'black' }}>
             <BlackSpan>Military Story</BlackSpan>
           </a>
         </Link>
@@ -218,7 +218,7 @@ function Home({ children }) {
               }}
             >
               <Link href="/">
-                <a style={{ textDecoration: 'none', color:'black'}}>
+                <a style={{ textDecoration: 'none', color: 'black' }}>
                   <BlackSpan>Military Story</BlackSpan>
                 </a>
               </Link>
@@ -246,13 +246,13 @@ function Home({ children }) {
             {me && (
               <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <IconButton sx={{ flexGrow: 1 }} onClick={goProfile}>
-                  <AccountBoxIcon sx ={{ color: "#237060" }} />
+                  <AccountBoxIcon sx={{ color: '#237060' }} />
                 </IconButton>
               </Box>
             )}
           </Toolbar>
         </StyledAppBar>
-        <Box sx={{  marginTop: 9, width:'100%' }}>
+        <Box sx={{ marginTop: 9, width: '100%' }}>
           {listOpen && (
             <Grid
               container
@@ -260,7 +260,7 @@ function Home({ children }) {
               sx={{
                 background: '#eee',
                 paddingLeft: 3,
-								marginTop: -3,
+                marginTop: -3,
                 marginBottom: 1,
                 boxShadow: '0 4px 4px -4px black',
               }}
@@ -272,7 +272,7 @@ function Home({ children }) {
                     item
                     xs={5.6}
                     md={1.9}
-                    sx={{ paddingBottom: 1, alignItems:'center' }}
+                    sx={{ paddingBottom: 1, alignItems: 'center' }}
                   >
                     <Link href={'/' + idx}>
                       <a style={{ textDecoration: 'none', color: 'black' }}>
@@ -280,13 +280,13 @@ function Home({ children }) {
                       </a>
                     </Link>
                   </Grid>
-								{idx!==5 && <Divider orientation="vertical" flexItem />}
+                  {idx !== 5 && <Divider orientation="vertical" flexItem />}
                 </>
               ))}
             </Grid>
           )}
           <Grid container spacing={1}>
-						<Grid md={2} />
+            <Grid md={2} />
             <Grid item xs={12} md={2}>
               <LeftDiv>
                 {me ? <UserProfile /> : <LoginForm />}
@@ -316,7 +316,7 @@ function Home({ children }) {
               </form>
               <PopularPosts />
             </Grid>
-						<Grid md={2}/>
+            <Grid md={2} />
           </Grid>
         </Box>
         <Box component="nav">
