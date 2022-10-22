@@ -168,4 +168,9 @@ const VacaAccordion = ({ category, editVa }) => {
   );
 };
 
+VacaAccordion.propTypes = {
+	category: PropTypes.string.required,
+	editVa: PropTypes.func.isRequired,
+}
+
 export default VacaAccordion;

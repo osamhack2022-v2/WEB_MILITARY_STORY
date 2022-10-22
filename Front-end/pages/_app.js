@@ -22,5 +22,5 @@ App.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.any.isRequired,
 };
-// redux, saga 설정
+
 export default wrapper.withRedux(App);

@@ -60,4 +60,8 @@ function MyVacation({ sendEditVacation }) {
   );
 }
 
+MyVacation.propTypes = {
+	sendEditVacation: PropTypes.func.isRequired,
+}
+
 export default MyVacation;

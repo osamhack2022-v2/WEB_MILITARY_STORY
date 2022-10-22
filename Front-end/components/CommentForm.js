@@ -151,12 +151,19 @@ const CommentForm = ({ post }) => {
 CommentForm.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,
+		UserId: PropTypes.number.isRequired,
+		category: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+		hidden_mode: PropTypes.bool.isRequired,
+		like_counts: PropTypes.number.isRequired,
+		private_mode: PropTypes.bool.isRequired,
+		report_count: PropTypes.number.isRequired,
     User: PropTypes.shape({
       id: PropTypes.number.isRequired,
       nickname: PropTypes.string.isRequired,
+      followers: PropTypes.number.isRequired,
     }),
-    content: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired,
     Comments: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
@@ -172,25 +179,26 @@ CommentForm.propTypes = {
     Likers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
+        Like: PropTypes.shape({
+          PostId: PropTypes.number.isRequired,
+					UserId: PropTypes.number.isRequired,
+					createdAt: PropTypes.string,
+					updatedAt: PropTypes.string,
+        })
       })
     ),
+    Scrappers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        Scrap: PropTypes.shape({
+          PostId: PropTypes.number.isRequired,
+          UserId: PropTypes.number.isRequired,
+					createdAt: PropTypes.string,
+					updatedAt: PropTypes.string,
+        })
+      })
+    )
   }).isRequired,
 };
-
-// <InputLabel htmlFor="input-with-icon-adornment">댓글 달기</InputLabel>
-//<Input
-//             sx={{ height: 50 }}
-//             id="input-with-icon-adornment"
-// 						placeholder="댓글 추가..."
-//             startAdornment={
-//               <InputAdornment position="start">
-//                 <StyledAvatar>
-//                   {me?.nickname[0]}
-//                 </StyledAvatar>
-//               </InputAdornment>
-//             }
-// 						value={commentText}
-//             onChange={onChangeCommentText}
-//           />
 
 export default CommentForm;

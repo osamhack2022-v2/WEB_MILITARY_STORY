@@ -40,7 +40,7 @@ const Home = () => {
       }
     }
     window.addEventListener('scroll', onScroll);
-    console.log('scroll');
+    
     return () => {
       window.removeEventListener('scroll', onScroll);
     };

@@ -36,7 +36,6 @@ const Comment = () => {
         _instancecomment.push(userComments[i]);
       }
     }
-    console.log(_instance);
     setInstanceComment(_instancecomment);
   }, [userComments]);
 

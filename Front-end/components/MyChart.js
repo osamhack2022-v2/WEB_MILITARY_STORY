@@ -159,4 +159,10 @@ function MyChart({ onEdit, edit, setEdit }) {
   );
 }
 
+MyChart.propTypes = {
+	onEdit: PropTypes.func.isRequired,
+	edit: PropTypes.bool.isRequired,
+	setEdit: PropTypes.func.isRequired,
+}
+
 export default MyChart;

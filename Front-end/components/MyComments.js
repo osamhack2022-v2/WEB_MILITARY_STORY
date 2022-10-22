@@ -74,9 +74,6 @@ const MyComments = ({ comments, post }) => {
     Router.push(`/post/${post.id}`).then();
   }, []);
 	
-	useEffect(()=>{
-		console.log(me)
-	}, [me])
 
   const avatar = () => {
     if (post.private_mode) {
@@ -254,5 +251,52 @@ const MyComments = ({ comments, post }) => {
     </Card>
   );
 };
+
+MyComments.propTypes = {
+	comments: PropTypes.string.isRequired,
+	post: PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		content: PropTypes.string.isRequired,
+		createdAt: PropTypes.string,
+		updatedAt: PropTypes.string,
+		Comments: PropTypes.arrayOf(
+		  PropTypes.shape({
+				id: PropTypes.number.isRequired,
+			})
+		),
+		Images: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.number,
+				src: PropTypes.string,
+			})
+		),
+		User: PropTypes.shape({
+			id: PropTypes.number.isRequired,
+			nickname: PropTypes.string.isRequired,
+			followers: PropTypes.number.isRequired,
+		}),
+		Likers: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.number.isRequired,
+				Like: PropTypes.shape({
+					PostId: PropTypes.number.isRequired,
+					UserId: PropTypes.number.isRequired,
+					createdAt: PropTypes.string,
+					updatedAt: PropTypes.string,
+				})
+			})
+		),
+		Scrappers: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.number.isRequired,
+				Scrap: PropTypes.shape({
+					PostId: PropTypes.number.isRequired,
+					UserId: PropTypes.number.isRequired,
+					createdAt: PropTypes.string,
+					updatedAt: PropTypes.string,
+				})
+			}))
+	})
+}
 
 export default MyComments;

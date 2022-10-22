@@ -44,7 +44,7 @@ const PaddingDiv = styled.div`
   padding-right: 5px;
 `;
 
-const PopularPosts = ({ index, posts }) => {
+const PopularPosts = () => {
   const { indexPosts, popularPosts } = useSelector((state) => state.post);
   const [popularPost, setPopularPost] = useState([]);
   const dipatch = useDispatch();
