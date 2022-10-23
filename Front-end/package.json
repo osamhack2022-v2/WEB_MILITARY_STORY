@@ -11,7 +11,7 @@
     "build:analyze": "cross-env ANALYZE=true NODE_ENV=production next build",
     "export": "next export"
   },
-  "author": "",
+  "author": "gnncjegrgr",
   "license": "MIT",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
