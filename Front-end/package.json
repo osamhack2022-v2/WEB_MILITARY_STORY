@@ -14,7 +14,6 @@
   "author": "gnncjegrgr",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/icons": "^4.3.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.3",
@@ -24,12 +23,9 @@
     "@mui/x-date-pickers": "^5.0.4",
     "@next/bundle-analyzer": "^10.0.5",
     "@reduxjs/toolkit": "^1.5.0",
-    "antd": "^4.10.2",
     "apexcharts": "^3.35.5",
     "axios": "^0.21.1",
     "dayjs": "^1.11.5",
-    "formik": "^2.2.6",
-    "formik-antd": "^2.0.1",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "next": "^12.1.0",
@@ -45,8 +41,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "styled-components": "^5.2.1",
-    "swr": "^0.4.0",
-    "yup": "^0.32.8"
+    "swr": "^0.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
