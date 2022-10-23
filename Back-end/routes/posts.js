@@ -11,9 +11,13 @@ router.get('/', async (req, res, next) => {
     if (parseInt(req.query.lastId, 10)) {
       where.id = { [Op.lt]: parseInt(req.query.lastId, 10) };
     }
+		let limit = 10;
+		if (parseInt(req.query.limit, 10)){
+	  	limit = parseInt(req.query.limit, 10)
+		}
     const posts = await Post.findAll({
       where,
-      limit: 10,
+      limit,
       order: [
         ['createdAt', 'DESC'],
         [Comment, 'createdAt', 'DESC'],
