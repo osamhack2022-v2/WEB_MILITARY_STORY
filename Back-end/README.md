@@ -1,6 +1,6 @@
 # osam_back
 
-## 실행방법
+## 섥치 및 실행 안내(Installation and Process)
 
 ##### npm install --force
 
