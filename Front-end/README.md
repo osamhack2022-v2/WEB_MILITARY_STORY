@@ -1,6 +1,6 @@
 # Front-end 개발문서
 
-## 실행방법
+## 설치 및 실행 안내 (Installation and Process)
 
 ##### npm install --force
 
