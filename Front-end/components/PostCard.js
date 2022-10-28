@@ -164,11 +164,11 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
 
   const avatar = () => {
     if (!post.private_mode) {
-      if (post.User.followers >= 2) {
+      if (post.User?.followers >= 2) {
         return (
           <Link
-            href={{ pathname: '/user', query: { id: post.User.id } }}
-            as={`/user/${post.User.id}`}
+            href={{ pathname: '/user', query: { id: post.User?.id } }}
+            as={`/user/${post.User?.id}`}
           >
             <a style={{ textDecoration: 'none', color: 'white' }}>
               <Badge
@@ -180,7 +180,7 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
                   sx={{ border: '2px solid #FFD400', bgcolor: 'black' }}
                   aria-label="recipe"
                 >
-                  {post.User.nickname[0]}
+                  {post.User?.nickname[0]}
                 </Avatar>
               </Badge>
             </a>
@@ -189,11 +189,11 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
       } else {
         return (
           <Link
-            href={{ pathname: '/user', query: { id: post.User.id } }}
-            as={`/user/${post.User.id}`}
+            href={{ pathname: '/user', query: { id: post.User?.id } }}
+            as={`/user/${post.User?.id}`}
           >
             <a style={{ textDecoration: 'none', color: 'white' }}>
-              <Avatar sx={{ bgcolor: '#ddd' }}>{post.User.nickname[0]}</Avatar>
+              <Avatar sx={{ bgcolor: '#ddd' }}>{post.User?.nickname[0]}</Avatar>
             </a>
           </Link>
         );
@@ -205,7 +205,7 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
 
   const name = () => {
     if (!post.private_mode) {
-      return post.User.nickname;
+      return post.User?.nickname;
     } else {
       return noname;
     }
@@ -239,7 +239,7 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
                 onClose={handleClose}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               >
-                {id && post.User.id === id ? (
+                {id && post.User?.id === id ? (
                   <>
                     <Button onClick={onToggleChangePost}>수정</Button>
                     <br />
@@ -330,10 +330,10 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
               <ListItem alignItems="flex-start">
                 <ListItemAvatar>
                   {el.private_mode && <Avatar alt="Remy Sharp">?</Avatar>}
-                  {!el.private_mode && el.User.followers >= 2 && (
+                  {!el.private_mode && el.User?.followers >= 2 && (
                     <Link
-                      href={{ pathname: '/user', query: { id: el.User.id } }}
-                      as={`/user/${el.User.id}`}
+                      href={{ pathname: '/user', query: { id: el.User?.id } }}
+                      as={`/user/${el.User?.id}`}
                     >
                       <a style={{ textDecoration: 'none', color: 'white' }}>
                         <Badge
@@ -351,26 +351,26 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
                               bgcolor: 'black',
                             }}
                           >
-                            {el.User.nickname[0]}
+                            {el.User?.nickname[0]}
                           </Avatar>
                         </Badge>
                       </a>
                     </Link>
                   )}
-                  {!el.private_mode && el.User.followers < 2 && (
+                  {!el.private_mode && el.User?.followers < 2 && (
                     <Link
-                      href={{ pathname: '/user', query: { id: el.User.id } }}
-                      as={`/user/${el.User.id}`}
+                      href={{ pathname: '/user', query: { id: el.User?.id } }}
+                      as={`/user/${el.User?.id}`}
                     >
                       <a style={{ color: 'white', textDecoration: 'none' }}>
-                        <Avatar alt="Remy Sharp">{el.User.nickname[0]}</Avatar>
+                        <Avatar alt="Remy Sharp">{el.User?.nickname[0]}</Avatar>
                       </a>
                     </Link>
                   )}
                 </ListItemAvatar>
                 {el.private_mode === false && (
                   <ListItemText
-                    primary={el.User.nickname}
+                    primary={el.User?.nickname}
                     secondary={
                       <React.Fragment>
                         <pre style={{ marginTop: 0 }}>{el.content}</pre>
