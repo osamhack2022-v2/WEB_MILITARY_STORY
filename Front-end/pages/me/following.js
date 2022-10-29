@@ -32,12 +32,30 @@ const Followings = () => {
   useEffect(() => {
     dispatch(loadMyInfo());
     dispatch(loadFollowingsPosts());
-    dispatch(
-      loadPopularPosts({
-        limit: 3,
-      })
-    );
   }, [router.asPath]);
+	
+	useEffect(() => {
+    const onScroll = () => {
+      if (hasMorePosts && !loadPostsLoading) {
+        if (
+          window.pageYOffset + document.documentElement.clientHeight >
+          document.documentElement.scrollHeight - 300
+        ) {
+          const lastId = mainPosts[mainPosts.length - 1]?.id;
+          dispatch(
+            loadFollowingsPosts({
+              lastId,
+            })
+          );
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [mainPosts.length, hasMorePosts, id, loadPostsLoading]);
+	
 
   return (
     <AppLayout>

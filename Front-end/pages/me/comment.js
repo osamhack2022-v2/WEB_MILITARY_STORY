@@ -26,6 +26,28 @@ const Comment = () => {
     dispatch(loadMyInfo());
     dispatch(loadUserComments());
   }, []);
+	
+	 useEffect(() => {
+    const onScroll = () => {
+      if (hasMorePosts && !loadPostsLoading) {
+        if (
+          window.pageYOffset + document.documentElement.clientHeight >
+          document.documentElement.scrollHeight - 300
+        ) {
+          const lastId = mainPosts[mainPosts.length - 1]?.id;
+          dispatch(
+            loadUserComments({
+              lastId,
+            })
+          );
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [mainPosts, hasMorePosts, loadPostsLoading]);
 
   useEffect(() => {
     const _instance = [];

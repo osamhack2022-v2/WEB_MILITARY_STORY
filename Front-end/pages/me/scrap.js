@@ -27,12 +27,30 @@ const Scrap = () => {
   useEffect(() => {
     dispatch(loadMyInfo());
     dispatch(loadUserScraps());
-    dispatch(
-      loadPopularPosts({
-        limit: 3,
-      })
-    );
   }, [asPath]);
+	
+	useEffect(() => {
+    const onScroll = () => {
+      if (hasMorePosts && !loadPostsLoading) {
+        if (
+          window.pageYOffset + document.documentElement.clientHeight >
+          document.documentElement.scrollHeight - 300
+        ) {
+          const lastId = mainPosts[mainPosts.length - 1]?.id;
+          dispatch(
+            loadUserScraps({
+              lastId,
+            })
+          );
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [mainPosts.length, hasMorePosts, id, loadPostsLoading]);
+	
   return (
     <AppLayout>
       <Head>
