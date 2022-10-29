@@ -1,4 +1,5 @@
 # MILITARY STORY
+
 <img src="https://raw.githubusercontent.com/osamhack2022-v2/WEB_MILITARY_STORY/master/Front-end/public/favicon.ico" height="250px" />
 
 군 장병 커뮤니티 웹 플랫폼 Military Story는 자유롭게 글을 업로드하여 공유하고, 군생활을 하는 데에 있어 도움을 서로 받고 줄 수 있도록 수 있는 웹 커뮤니티입니다.
@@ -9,26 +10,31 @@
 Military Story는 여러 개의 게시판으로 이루어져 있어 각각의 게시판의 주제에 맞게 게시물을 업로드 할 수 있습니다.
 
 #### 1. 자유 게시판
+
 자신이 많은 사람들에게 말해주고 싶은 이야기를 공유할 수 있습니다. 인터넷 커뮤니티의 기본적인 특징을 담은 게시판입니다.
 
 #### 2. 고민 상담 게시판
+
 군생활을 하면서 누구나 고민이 생길 수 있습니다. 상담사나 또래상담병에게 고민을 털어놓을 수 있겠지만 어떤 고민은 익명으로 털어 놓고 많은 사람들에게 조언을 받고 싶을 때가 있습니다. <br/>
 고민 상담 게시판을 통해 익명으로 고민을 털어놓을 수 있으며 같은 군인의 입장에서 전우들의 관점이 담긴 조언을 받을 수 있는 게시판입니다.
 
 #### 3. 정보 게시판
+
 여단, 사단, 국방부 등 군장병들이 군생활을 하면서 다양한 행사나 대회에 참여할 수 있지만 있는지도 몰라서 참여하지 못하거나 그런 것들을 알아보려고 해도 많은 사이트를 서핑하면서 정보를 얻어야 하기 때문에 시간과 노력이 많이 듭니다. <br />
 이에 대한 해결방안으로 커뮤니티 이용 장병들이 자발적으로 자신이 알고 있는 행사나 대회를 공유하여 정보를 손쉽게 얻을 수 있도록 하면 좋을 것이라 생각하여 정보게시판을 만들었습니다.
 
-#### 4. 감사일지 게시판 
+#### 4. 감사일지 게시판
+
 감사일지를 노트에 쓰면서 감사노트를 공유하면 군 내에 긍정적인 영향을 끼칠 수 있지 않을까하여 만든 게시판입니다.<br/>
 함께 감사일지를 공유하여 감사일지를 매일매일 쓰는 습관을 기를 수 있습니다.
 
 #### 5. 질문 답변 게시판
+
 군생활을 하면서 발생한 질문을 해결할 수 있는 게시판입니다.
 
 #### 6. 취미 게시판
-자신만의 특별한 취미를 공유하는 게시판입니다.
 
+자신만의 특별한 취미를 공유하는 게시판입니다.
 
 ## 기능 설명
 
@@ -75,50 +81,58 @@ Military Story는 여러 개의 게시판으로 이루어져 있어 각각의 �
 프로필 페이지에서는 내가 군생활을 얼마나 했고, 얼마나 남았는지 도넛 그래프로 볼 수 있으며, 받은 휴가에 대해 기록하여 내가 얼마나 휴가를 받았고 그 사유는 무엇인지에 대해 기록할 수 있습니다.
 
 ### 9. 무한 스크롤 페이징
+
 Military Story는 자료 보관의 목적보단 일상 위주의 이야기나 기간이 있는 행사, 대회에 대한 정보, 단순한 질문 및 답변, 고민 상담 등과 같이 휘발성이 있는 정보들에 대해 주로 다룹니다.
 유저가 몇 년전의 게시글을 찾는 일이 적으며 무한 스크롤링으로 페이지를 제작한다고 해도 사용자 입장에서 크게 불편한 점이 없을 것이라고 판단했습니다.<br/>
 그래서 사용자가 다음페이지로 넘어가는 번호를 눌러줘야하는 번거로움과 눌렀을 때 페이지가 변하는 피로감을 주는 페이지네이션보다 무한 스크롤이 Military Story에 더 어울린다고 생각하여 구현했습니다.
-
 
 ## 기술 스택
 
 ### FRONTEND
 
 ##### - 개발 언어
-|javascript|
-|-|
-|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" width="80px"/>|
+
+| javascript                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" width="80px"/> |
 
 ##### - 프레임워크
-|next.js|
-|-------|
-|<img src="https://miro.medium.com/max/1000/1*htbUdWgFQ3a94PMEvBr_hQ.png" height="80px" />|
+
+| next.js                                                                                   |
+| ----------------------------------------------------------------------------------------- |
+| <img src="https://miro.medium.com/max/1000/1*htbUdWgFQ3a94PMEvBr_hQ.png" height="80px" /> |
 
 ##### - 상태관리 라이브러리
-|redux toolkit|
-|-------------|
-|<img src="https://hybridheroes.de/blog/content/images/2022/03/redux-toolkit-1400.jpg" height="80px" /> |
+
+| redux toolkit                                                                                          |
+| ------------------------------------------------------------------------------------------------------ |
+| <img src="https://hybridheroes.de/blog/content/images/2022/03/redux-toolkit-1400.jpg" height="80px" /> |
 
 ##### - 컴포넌트 디자인 라이브러리
-|mui|
-|---|
-|<img src="https://mui.com/static/logo.png" height="80px" /> |
+
+| mui                                                         |
+| ----------------------------------------------------------- |
+| <img src="https://mui.com/static/logo.png" height="80px" /> |
 
 ### BACKEND
 
 ##### - 개발 언어
-|javascript|
-|-|
-|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" width="80px"/>|
+
+| javascript                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" width="80px"/> |
+
 ##### - 프레임워크
-|express js|
-|---------|
-|<img src="https://expressjs.com/images/express-facebook-share.png" height="80px" /> |
+
+| express js                                                                          |
+| ----------------------------------------------------------------------------------- |
+| <img src="https://expressjs.com/images/express-facebook-share.png" height="80px" /> |
 
 ##### - 데이터베이스
-|mysql|
-|----|
-|<img src="https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png" height="80px" />|
+
+| mysql                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png" height="80px" /> |
 
 ## 컴퓨터 구성 / 필수 조건 안내
 
@@ -134,13 +148,13 @@ Military Story는 자료 보관의 목적보단 일상 위주의 이야기나 �
 
 ## communications
 
-|slack|
-|----|
-|<img src="https://apiway.ai/storage/softs/YisONm9JLhNxkKDlmWkpbKGrotSo13uAuZxZhked.jpg" height="80px" />|
+| slack                                                                                                    |
+| -------------------------------------------------------------------------------------------------------- |
+| <img src="https://apiway.ai/storage/softs/YisONm9JLhNxkKDlmWkpbKGrotSo13uAuZxZhked.jpg" height="80px" /> |
 
-|kakao talk|
-|---------|
-|<img src="https://play-lh.googleusercontent.com/Ob9Ys8yKMeyKzZvl3cB9JNSTui1lJwjSKD60IVYnlvU2DsahysGENJE-txiRIW9_72Vd" height="80px" />|
+| kakao talk                                                                                                                             |
+| -------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://play-lh.googleusercontent.com/Ob9Ys8yKMeyKzZvl3cB9JNSTui1lJwjSKD60IVYnlvU2DsahysGENJE-txiRIW9_72Vd" height="80px" /> |
 
 ## 팀원
 
@@ -156,5 +170,5 @@ Military Story는 자료 보관의 목적보단 일상 위주의 이야기나 �
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
 
 - [MIT](https://github.com/osamhack2022-v2/WEB_MILITARY_STORY/blob/master/license.md)
- 
+
 This project is licensed under the terms of the MIT license.

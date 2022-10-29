@@ -2,17 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import axios from 'axios';
-import Link from 'next/link';
-import {
-  loadPopularPosts,
-  loadMyPosts,
-  loadStartMyPosts,
-} from '../../actions/post';
+import { loadPopularPosts, loadMyPosts } from '../../actions/post';
 import { loadMyInfo, loadUser } from '../../actions/user';
 import PostCard from '../../components/PostCard';
 import AppLayout from '../../components/AppLayout';
-import wrapper from '../../store/configureStore';
 
 const User = () => {
   const dispatch = useDispatch();

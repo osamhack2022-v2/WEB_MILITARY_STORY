@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import LoadingButton from '@mui/lab/LoadingButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { updatePost, loadPosts } from '../actions/post';
 

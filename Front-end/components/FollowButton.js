@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -59,14 +59,14 @@ const FollowButton = ({ post }) => {
 FollowButton.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,
-		UserId: PropTypes.number.isRequired,
-		category: PropTypes.string.isRequired,
+    UserId: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
-		hidden_mode: PropTypes.bool.isRequired,
-		like_counts: PropTypes.number.isRequired,
-		private_mode: PropTypes.bool.isRequired,
-		report_count: PropTypes.number.isRequired,
+    hidden_mode: PropTypes.bool.isRequired,
+    like_counts: PropTypes.number.isRequired,
+    private_mode: PropTypes.bool.isRequired,
+    report_count: PropTypes.number.isRequired,
     User: PropTypes.shape({
       id: PropTypes.number.isRequired,
       nickname: PropTypes.string.isRequired,
@@ -89,10 +89,10 @@ FollowButton.propTypes = {
         id: PropTypes.number.isRequired,
         Like: PropTypes.shape({
           PostId: PropTypes.number.isRequired,
-					UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-        })
+          UserId: PropTypes.number.isRequired,
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
       })
     ),
     Scrappers: PropTypes.arrayOf(
@@ -101,11 +101,11 @@ FollowButton.propTypes = {
         Scrap: PropTypes.shape({
           PostId: PropTypes.number.isRequired,
           UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-        })
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
       })
-    )
+    ),
   }).isRequired,
 };
 export default FollowButton;

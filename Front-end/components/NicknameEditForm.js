@@ -6,7 +6,6 @@ import InputBase from '@mui/material/InputBase';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
-import useInput from '../hooks/useInput';
 import { changeNickname } from '../actions/user';
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({

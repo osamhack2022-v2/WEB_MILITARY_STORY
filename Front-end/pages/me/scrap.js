@@ -3,16 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import AppLayout from '../../components/AppLayout';
-import PostForm from '../../components/PostForm';
 import PostCard from '../../components/PostCard';
-import MyScraps from '../../components/MyScraps';
 import { loadMyInfo } from '../../actions/user';
 import Head from 'next/head';
-import {
-  loadPosts,
-  loadUserScraps,
-  loadPopularPosts,
-} from '../../actions/post';
+import { loadUserScraps, loadPopularPosts } from '../../actions/post';
 import wrapper from '../../store/configureStore';
 
 const Scrap = () => {
@@ -28,8 +22,8 @@ const Scrap = () => {
     dispatch(loadMyInfo());
     dispatch(loadUserScraps());
   }, [asPath]);
-	
-	useEffect(() => {
+
+  useEffect(() => {
     const onScroll = () => {
       if (hasMorePosts && !loadPostsLoading) {
         if (
@@ -50,7 +44,7 @@ const Scrap = () => {
       window.removeEventListener('scroll', onScroll);
     };
   }, [mainPosts.length, hasMorePosts, id, loadPostsLoading]);
-	
+
   return (
     <AppLayout>
       <Head>
@@ -65,14 +59,6 @@ const Scrap = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    const cookie = context.req ? context.req.headers.cookie : '';
-    axios.defaults.headers.Cookie = '';
-
-    if (context.req && cookie) {
-      axios.defaults.headers.Cookie = cookie;
-    }
-
-    // await context.store.dispatch(loadUserComments);
     await context.store.dispatch(
       loadPopularPosts({
         limit: 3,

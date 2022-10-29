@@ -151,14 +151,14 @@ const CommentForm = ({ post }) => {
 CommentForm.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,
-		UserId: PropTypes.number.isRequired,
-		category: PropTypes.string.isRequired,
+    UserId: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
-		hidden_mode: PropTypes.bool.isRequired,
-		like_counts: PropTypes.number.isRequired,
-		private_mode: PropTypes.bool.isRequired,
-		report_count: PropTypes.number.isRequired,
+    hidden_mode: PropTypes.bool.isRequired,
+    like_counts: PropTypes.number.isRequired,
+    private_mode: PropTypes.bool.isRequired,
+    report_count: PropTypes.number.isRequired,
     User: PropTypes.shape({
       id: PropTypes.number.isRequired,
       nickname: PropTypes.string.isRequired,
@@ -181,10 +181,10 @@ CommentForm.propTypes = {
         id: PropTypes.number.isRequired,
         Like: PropTypes.shape({
           PostId: PropTypes.number.isRequired,
-					UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-        })
+          UserId: PropTypes.number.isRequired,
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
       })
     ),
     Scrappers: PropTypes.arrayOf(
@@ -193,11 +193,11 @@ CommentForm.propTypes = {
         Scrap: PropTypes.shape({
           PostId: PropTypes.number.isRequired,
           UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-        })
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
       })
-    )
+    ),
   }).isRequired,
 };
 

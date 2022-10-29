@@ -53,15 +53,8 @@ const Home = () => {
   );
 };
 
-// SSR (프론트 서버에서 실행)
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    const cookie = context.req ? context.req.headers.cookie : '';
-    axios.defaults.headers.Cookie = '';
-
-    if (context.req && cookie) {
-      axios.defaults.headers.Cookie = cookie;
-    }
     await context.store.dispatch(
       loadIndexPosts({
         limit: 3,

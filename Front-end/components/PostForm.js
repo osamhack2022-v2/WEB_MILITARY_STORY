@@ -3,11 +3,9 @@ import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import postSlice from '../reducers/post';
 import { addPost, uploadImages } from '../actions/post';
-import { backUrl } from '../config/config';
 
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
-import TagIcon from '@mui/icons-material/Tag';
 import useInput from '../hooks/useInput';
 
 import styled from 'styled-components';

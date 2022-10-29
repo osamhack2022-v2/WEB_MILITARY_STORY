@@ -3,16 +3,11 @@ import Link from 'next/link';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import CardActionArea from '@mui/material/CardActionArea';
-import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
-import Popover from '@mui/material/Popover';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -24,8 +19,6 @@ import StarIcon from '@mui/icons-material/Star';
 
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CommentIcon from '@mui/icons-material/Comment';
 
@@ -35,16 +28,8 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import Router from 'next/router';
 import PostImages from './PostImages';
-import CommentForm from './CommentForm';
 import PostCardContent from './PostCardContent';
-import {
-  likePost,
-  removePost,
-  unlikePost,
-  scrapPost,
-  unScrapPost,
-} from '../actions/post';
-import FollowButton from './FollowButton';
+import { likePost, unlikePost, scrapPost, unScrapPost } from '../actions/post';
 
 moment.locale('ko');
 
@@ -73,7 +58,6 @@ const MyComments = ({ comments, post }) => {
   const onZoomPost = useCallback(() => {
     Router.push(`/post/${post.id}`).then();
   }, []);
-	
 
   const avatar = () => {
     if (post.private_mode) {
@@ -162,19 +146,21 @@ const MyComments = ({ comments, post }) => {
   const scrapped = post.Scrappers.find((v) => v.id === id);
 
   return (
-    <Card sx={{ width: '100%', marginBottom: '5%', border: '1px solid #1B3B1A' }}>
+    <Card
+      sx={{ width: '100%', marginBottom: '5%', border: '1px solid #1B3B1A' }}
+    >
       <CardHeader
         avatar={avatar()}
         title={post.User.nickname}
         subheader={moment(post.createdAt).fromNow()}
       />
-			<Divider sx={{ marginTop: 0, bgcolor: '#1B3B1A' }} variant="middle" />
+      <Divider sx={{ marginTop: 0, bgcolor: '#1B3B1A' }} variant="middle" />
       <CardContent>
         {post.Images.length > 0 && <PostImages images={post.Images} />}
       </CardContent>
       <CardContent>
         <Typography variant="body2" component="pre" color="text.secondary">
-          <pre style={{ maxWidth: '100%', marginTop:0 }}>
+          <pre style={{ maxWidth: '100%', marginTop: 0 }}>
             <PostCardContent
               postId={post.id}
               postContent={post.content}
@@ -253,50 +239,51 @@ const MyComments = ({ comments, post }) => {
 };
 
 MyComments.propTypes = {
-	comments: PropTypes.string.isRequired,
-	post: PropTypes.shape({
-		id: PropTypes.number.isRequired,
-		content: PropTypes.string.isRequired,
-		createdAt: PropTypes.string,
-		updatedAt: PropTypes.string,
-		Comments: PropTypes.arrayOf(
-		  PropTypes.shape({
-				id: PropTypes.number.isRequired,
-			})
-		),
-		Images: PropTypes.arrayOf(
-			PropTypes.shape({
-				id: PropTypes.number,
-				src: PropTypes.string,
-			})
-		),
-		User: PropTypes.shape({
-			id: PropTypes.number.isRequired,
-			nickname: PropTypes.string.isRequired,
-			followers: PropTypes.number.isRequired,
-		}),
-		Likers: PropTypes.arrayOf(
-			PropTypes.shape({
-				id: PropTypes.number.isRequired,
-				Like: PropTypes.shape({
-					PostId: PropTypes.number.isRequired,
-					UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-				})
-			})
-		),
-		Scrappers: PropTypes.arrayOf(
-			PropTypes.shape({
-				id: PropTypes.number.isRequired,
-				Scrap: PropTypes.shape({
-					PostId: PropTypes.number.isRequired,
-					UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-				})
-			}))
-	})
-}
+  comments: PropTypes.string.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
+    Comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+      })
+    ),
+    Images: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        src: PropTypes.string,
+      })
+    ),
+    User: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      nickname: PropTypes.string.isRequired,
+      followers: PropTypes.number.isRequired,
+    }),
+    Likers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        Like: PropTypes.shape({
+          PostId: PropTypes.number.isRequired,
+          UserId: PropTypes.number.isRequired,
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
+      })
+    ),
+    Scrappers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        Scrap: PropTypes.shape({
+          PostId: PropTypes.number.isRequired,
+          UserId: PropTypes.number.isRequired,
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
+      })
+    ),
+  }),
+};
 
 export default MyComments;

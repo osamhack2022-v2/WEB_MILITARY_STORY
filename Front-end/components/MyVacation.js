@@ -1,22 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Grid';
+
 import useInput from '../hooks/useInput';
-import AddIcon from '@mui/icons-material/Add';
-
 import VacaAccordion from './VacaAccordion';
-
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const StyledDiv = styled.div`
   margin-top: 20px;
@@ -61,7 +48,7 @@ function MyVacation({ sendEditVacation }) {
 }
 
 MyVacation.propTypes = {
-	sendEditVacation: PropTypes.func.isRequired,
-}
+  sendEditVacation: PropTypes.func.isRequired,
+};
 
 export default MyVacation;

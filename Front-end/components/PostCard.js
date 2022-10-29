@@ -3,10 +3,8 @@ import Link from 'next/link';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import CardActionArea from '@mui/material/CardActionArea';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -23,7 +21,6 @@ import Badge from '@mui/material/Badge';
 import StarIcon from '@mui/icons-material/Star';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CommentIcon from '@mui/icons-material/Comment';
@@ -401,14 +398,14 @@ const PostCard = ({ post, isEdited, setIsEdited }) => {
 PostCard.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,
-		UserId: PropTypes.number.isRequired,
-		category: PropTypes.string.isRequired,
+    UserId: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
-		hidden_mode: PropTypes.bool.isRequired,
-		like_counts: PropTypes.number.isRequired,
-		private_mode: PropTypes.bool.isRequired,
-		report_count: PropTypes.number.isRequired,
+    hidden_mode: PropTypes.bool.isRequired,
+    like_counts: PropTypes.number.isRequired,
+    private_mode: PropTypes.bool.isRequired,
+    report_count: PropTypes.number.isRequired,
     User: PropTypes.shape({
       id: PropTypes.number.isRequired,
       nickname: PropTypes.string.isRequired,
@@ -431,10 +428,10 @@ PostCard.propTypes = {
         id: PropTypes.number.isRequired,
         Like: PropTypes.shape({
           PostId: PropTypes.number.isRequired,
-					UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-        })
+          UserId: PropTypes.number.isRequired,
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
       })
     ),
     Scrappers: PropTypes.arrayOf(
@@ -443,11 +440,11 @@ PostCard.propTypes = {
         Scrap: PropTypes.shape({
           PostId: PropTypes.number.isRequired,
           UserId: PropTypes.number.isRequired,
-					createdAt: PropTypes.string,
-					updatedAt: PropTypes.string,
-        })
+          createdAt: PropTypes.string,
+          updatedAt: PropTypes.string,
+        }),
       })
-    )
+    ),
   }).isRequired,
 };
 

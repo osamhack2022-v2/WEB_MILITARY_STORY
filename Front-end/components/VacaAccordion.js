@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import styled from 'styled-components';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -8,7 +7,6 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import useInput from '../hooks/useInput';
 import AddIcon from '@mui/icons-material/Add';
@@ -169,8 +167,8 @@ const VacaAccordion = ({ category, editVa }) => {
 };
 
 VacaAccordion.propTypes = {
-	category: PropTypes.string.required,
-	editVa: PropTypes.func.isRequired,
-}
+  category: PropTypes.string.required,
+  editVa: PropTypes.func.isRequired,
+};
 
 export default VacaAccordion;

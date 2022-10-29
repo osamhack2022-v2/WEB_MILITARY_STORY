@@ -72,7 +72,6 @@ const Profile = () => {
     setEdit(false);
   };
 
-  // 주의 return 이 hooks 보다 위에 있으면 안됨
   if (followerError || followingError) {
     console.error(followerError, followingError);
     return <div>팔로잉/팔로워 로딩 중 에러가 발생합니다.</div>;

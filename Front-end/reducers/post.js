@@ -33,7 +33,6 @@ import {
   loadFollowingsPosts,
 } from '../actions/post';
 
-// 기본 state
 export const initialState = {
   mainPosts: [],
   indexPosts: [],
@@ -200,7 +199,6 @@ const postSlice = createSlice({
         state.loadPostsLoading = false;
         state.loadPostsError = action.error.message;
       })
-      // loadHashtagPosts
       .addCase(loadHashtagPosts.pending, (state) => {
         state.loadPostsLoading = true;
         state.loadPostsDone = false;
@@ -216,7 +214,6 @@ const postSlice = createSlice({
         state.loadPostsLoading = false;
         state.loadPostsError = action.error.message;
       })
-      // loadUserPosts
       .addCase(loadUserPosts.pending, (state) => {
         state.loadPostsLoading = true;
         state.loadPostsDone = false;
@@ -262,7 +259,6 @@ const postSlice = createSlice({
         state.loadPostsLoading = false;
         state.loadPostsError = action.error.message;
       })
-      // addPost
       .addCase(addPost.pending, (state) => {
         state.addPostLoading = true;
         state.addPostDone = false;
@@ -278,7 +274,6 @@ const postSlice = createSlice({
         state.addPostLoading = false;
         state.addPostError = action.error.message;
       })
-      // uploadImages
       .addCase(uploadImages.pending, (state) => {
         state.uploadImagesLoading = true;
         state.uploadImagesDone = false;
@@ -293,7 +288,6 @@ const postSlice = createSlice({
         state.uploadImagesLoading = false;
         state.uploadImagesError = action.error.message;
       })
-      // addComment
       .addCase(addComment.pending, (state) => {
         state.addCommentLoading = true;
         state.addCommentDone = false;
@@ -315,16 +309,15 @@ const postSlice = createSlice({
         if (!post) {
           post = _find(state.followingsPosts, { id: action.payload.PostId });
         }
-				if(!post) {
-					post = _find(state.popularPosts, {id: action.payload.PostId});
-				}
+        if (!post) {
+          post = _find(state.popularPosts, { id: action.payload.PostId });
+        }
         post.Comments.unshift(action.payload);
       })
       .addCase(addComment.rejected, (state, action) => {
         state.addCommentLoading = false;
         state.addCommentError = action.error.message;
       })
-      // removePost
       .addCase(removePost.pending, (state) => {
         state.removePostLoading = true;
         state.removePostDone = false;
@@ -334,11 +327,11 @@ const postSlice = createSlice({
         state.removePostLoading = false;
         state.removePostDone = true;
         _remove(state.mainPosts, { id: action.payload.PostId });
-				_remove(state.myPosts, { id: action.payload.PostId });
-				_remove(state.followingsPosts, { id: action.payload.PostId });
-				_remove(state.popularPosts, { id: action.payload.PostId });
-				_remove(state.hotPosts, { id: action.payload.PostId });
-				_remove(state.singlePost, { id: action.payload.PostId});
+        _remove(state.myPosts, { id: action.payload.PostId });
+        _remove(state.followingsPosts, { id: action.payload.PostId });
+        _remove(state.popularPosts, { id: action.payload.PostId });
+        _remove(state.hotPosts, { id: action.payload.PostId });
+        _remove(state.singlePost, { id: action.payload.PostId });
       })
       .addCase(removePost.rejected, (state, action) => {
         state.removePostLoading = false;
@@ -365,7 +358,6 @@ const postSlice = createSlice({
         state.reportPostLoading = false;
         state.reportPostError = action.error.message;
       })
-      // likePost
       .addCase(likePost.pending, (state) => {
         state.likePostLoading = true;
         state.likePostDone = false;
@@ -387,16 +379,15 @@ const postSlice = createSlice({
         if (!post) {
           post = _find(state.hotPosts, { id: action.payload.PostId });
         }
-				if(!post){
-					post = _find(state.popularPosts, {id:action.payload.PostId});
-				}
+        if (!post) {
+          post = _find(state.popularPosts, { id: action.payload.PostId });
+        }
         post.Likers.push({ id: action.payload.UserId });
       })
       .addCase(likePost.rejected, (state, action) => {
         state.likePostLoading = false;
         state.likePostError = action.error.message;
       })
-      // scrapPost
       .addCase(scrapPost.pending, (state) => {
         state.scrapPostLoading = true;
         state.scrapPostDone = false;
@@ -416,7 +407,7 @@ const postSlice = createSlice({
             id: action.payload.PostId,
           });
         }
-				if (!post) {
+        if (!post) {
           post = _find(state.popularPosts.concat(state.indexPosts), {
             id: action.payload.PostId,
           });
@@ -437,7 +428,6 @@ const postSlice = createSlice({
         state.scrapPostLoading = false;
         state.scrapPostError = action.error.message;
       })
-      // unlikePost
       .addCase(unlikePost.pending, (state) => {
         state.likePostLoading = true;
         state.likePostDone = false;
@@ -453,15 +443,15 @@ const postSlice = createSlice({
         if (!post) {
           post = _find(state.hotPosts, { id: action.payload.PostId });
         }
-				if(!post) {
-					post = _find(state.popularPosts, {id: action.payload.PostId});
-				}
-				if(!post) {
-					post = _find(state.myPosts, {id: action.payload.PostId});
-				}
-				if(!post) {
-					post = _find(state.followingsPosts, {id: action.payload.PostId});
-				}
+        if (!post) {
+          post = _find(state.popularPosts, { id: action.payload.PostId });
+        }
+        if (!post) {
+          post = _find(state.myPosts, { id: action.payload.PostId });
+        }
+        if (!post) {
+          post = _find(state.followingsPosts, { id: action.payload.PostId });
+        }
         _remove(post.Likers, { id: action.payload.UserId });
       })
       .addCase(unlikePost.rejected, (state, action) => {
@@ -486,7 +476,7 @@ const postSlice = createSlice({
         if (!post) {
           post = _find(state.hotPosts, { id: action.payload.PostId });
         }
-				if (!post) {
+        if (!post) {
           post = _find(state.popularPosts, { id: action.payload.PostId });
         }
         if (!post) {
@@ -498,7 +488,6 @@ const postSlice = createSlice({
         state.scrapPostLoading = false;
         state.scrapPostError = action.error.message;
       })
-      // updatePost
       .addCase(updatePost.pending, (state) => {
         state.updatePostLoading = true;
         state.updatePostDone = false;
@@ -514,7 +503,7 @@ const postSlice = createSlice({
         if (!post) {
           post = _find(state.myPosts, { id: action.payload.PostId });
         }
-				if (!post) {
+        if (!post) {
           post = _find(state.popularPosts, { id: action.payload.PostId });
         }
         if (!post) {
@@ -529,7 +518,6 @@ const postSlice = createSlice({
         state.updatePostLoading = false;
         state.updatePostError = action.error.message;
       })
-      // loadPost
       .addCase(loadPost.pending, (state) => {
         state.loadPostsLoading = true;
         state.loadPostsDone = false;

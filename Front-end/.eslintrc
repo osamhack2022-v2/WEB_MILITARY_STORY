@@ -12,14 +12,8 @@
     "node": true,
     "es6": true
   },
-  "extends": [
-    "airbnb"
-  ],
-  "plugins": [
-    "import",
-    "react-hooks",
-    "jsx-a11y"
-  ],
+  "extends": ["airbnb"],
+  "plugins": ["import", "react-hooks", "jsx-a11y"],
   "rules": {
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/anchor-is-valid": "off",

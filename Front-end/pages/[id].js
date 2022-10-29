@@ -40,7 +40,7 @@ const Home = () => {
       }
     }
     window.addEventListener('scroll', onScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
@@ -62,10 +62,6 @@ const Home = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    console.log(context.req);
-    const cookie = context.req ? context.req.headers.cookie : '';
-    axios.defaults.headers.Cookie = '';
-
     await context.store.dispatch(
       loadStartPosts({
         category: context.params.id,

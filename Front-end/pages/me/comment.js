@@ -3,15 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Head from 'next/head';
 import AppLayout from '../../components/AppLayout';
-import PostForm from '../../components/PostForm';
-import PostCard from '../../components/PostCard';
 import MyComments from '../../components/MyComments';
 import { loadMyInfo } from '../../actions/user';
-import {
-  loadPosts,
-  loadUserComments,
-  loadPopularPosts,
-} from '../../actions/post';
+import { loadUserComments, loadPopularPosts } from '../../actions/post';
 import wrapper from '../../store/configureStore';
 
 const Comment = () => {
@@ -26,8 +20,8 @@ const Comment = () => {
     dispatch(loadMyInfo());
     dispatch(loadUserComments());
   }, []);
-	
-	 useEffect(() => {
+
+  useEffect(() => {
     const onScroll = () => {
       if (hasMorePosts && !loadPostsLoading) {
         if (
@@ -75,13 +69,6 @@ const Comment = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    const cookie = context.req ? context.req.headers.cookie : '';
-    axios.defaults.headers.Cookie = '';
-
-    if (context.req && cookie) {
-      axios.defaults.headers.Cookie = cookie;
-    }
-
     await context.store.dispatch(
       loadPopularPosts({
         limit: 3,

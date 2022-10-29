@@ -14,34 +14,32 @@ import {
   editVacation,
 } from '../actions/user';
 
-// 기본 state
 export const initialState = {
-  me: null, // 내 정보
-  userInfo: null, // 유저 정보
-  loadMyInfoLoading: false, // 로그인 정보 조회
+  me: null,
+  userInfo: null,
+  loadMyInfoLoading: false,
   loadMyInfoDone: false,
   loadMyInfoError: null,
-  loadUserLoading: false, // 유저 정보 조회
+  loadUserLoading: false,
   loadUserDone: false,
   loadUserError: null,
-  loginLoading: false, // 로그인 시도중
+  loginLoading: false,
   loginDone: false,
   loginError: null,
-  logoutLoading: false, // 로그아웃 시도중
+  logoutLoading: false,
   logoutDone: false,
   logoutError: null,
-  signupLoading: false, // 회원가입 시도중
+  signupLoading: false,
   signupDone: false,
   signupError: null,
-  changeNicknameLoading: false, // 닉네임 변경 시도중
+  changeNicknameLoading: false,
   changeNicknameDone: false,
   changeNicknameError: null,
-  followLoading: false, // 팔로우
+  followLoading: false,
   followDone: false,
   followError: null,
 };
 
-// toolkit 사용방법
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -55,7 +53,6 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      // login
       .addCase(login.pending, (state) => {
         state.loginLoading = true;
         state.loginDone = false;
@@ -70,7 +67,6 @@ const userSlice = createSlice({
         state.loginLoading = false;
         state.loginError = action.payload;
       })
-      // logout
       .addCase(logout.pending, (state) => {
         state.logoutLoading = true;
         state.logoutDone = false;
@@ -85,7 +81,6 @@ const userSlice = createSlice({
         state.logoutLoading = false;
         state.logoutError = action.payload;
       })
-      // signup
       .addCase(signup.pending, (state) => {
         state.signupLoading = true;
         state.signupDone = false;
@@ -99,7 +94,6 @@ const userSlice = createSlice({
         state.signupLoading = false;
         state.signupError = action.payload;
       })
-      // loadMyInfo
       .addCase(loadMyInfo.pending, (state) => {
         state.loadMyInfoLoading = true;
         state.loadMyInfoDone = false;
@@ -128,7 +122,6 @@ const userSlice = createSlice({
         state.loadUserLoading = false;
         state.loadUserError = action.payload;
       })
-      // loadUser
       .addCase(loadUser.pending, (state) => {
         state.loadUserLoading = true;
         state.loadUserDone = false;
@@ -143,7 +136,6 @@ const userSlice = createSlice({
         state.loadUserLoading = false;
         state.loadUserError = action.payload;
       })
-      // changeNickname
       .addCase(changeNickname.pending, (state) => {
         state.changeNicknameLoading = true;
         state.changeNicknameDone = false;
@@ -172,7 +164,6 @@ const userSlice = createSlice({
         state.changeNicknameLoading = false;
         state.changeNicknameError = action.payload;
       })
-      // follow
       .addCase(follow.pending, (state) => {
         state.followLoading = true;
         state.followDone = false;
@@ -187,7 +178,6 @@ const userSlice = createSlice({
         state.followLoading = false;
         state.followError = action.payload;
       })
-      // unfollow
       .addCase(unfollow.pending, (state) => {
         state.followLoading = true;
         state.followDone = false;
@@ -202,7 +192,6 @@ const userSlice = createSlice({
         state.followLoading = false;
         state.followError = action.payload;
       })
-      // removeFollow
       .addCase(removeFollow.pending, (state) => {
         state.followLoading = true;
         state.followDone = false;

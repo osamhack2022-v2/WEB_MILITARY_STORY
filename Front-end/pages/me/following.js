@@ -3,13 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Head from 'next/head';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import {
-  loadStartFollowingsPosts,
-  loadFollowingsPosts,
-  loadPopularPosts,
-} from '../../actions/post';
-import { loadMyInfo, loadUser } from '../../actions/user';
+import { loadFollowingsPosts, loadPopularPosts } from '../../actions/post';
+import { loadMyInfo } from '../../actions/user';
 import PostCard from '../../components/PostCard';
 import AppLayout from '../../components/AppLayout';
 import wrapper from '../../store/configureStore';
@@ -21,7 +16,6 @@ const Followings = () => {
   const { followingsPosts, hasMorePosts, loadPostsLoading } = useSelector(
     (state) => state.post
   );
-  const { me } = useSelector((state) => state.user);
 
   const post = useSelector((state) => state.post);
 
@@ -33,8 +27,8 @@ const Followings = () => {
     dispatch(loadMyInfo());
     dispatch(loadFollowingsPosts());
   }, [router.asPath]);
-	
-	useEffect(() => {
+
+  useEffect(() => {
     const onScroll = () => {
       if (hasMorePosts && !loadPostsLoading) {
         if (
@@ -55,7 +49,6 @@ const Followings = () => {
       window.removeEventListener('scroll', onScroll);
     };
   }, [mainPosts.length, hasMorePosts, id, loadPostsLoading]);
-	
 
   return (
     <AppLayout>
@@ -71,14 +64,6 @@ const Followings = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    const cookie = context.req ? context.req.headers.cookie : '';
-    axios.defaults.headers.Cookie = '';
-
-    if (context.req && cookie) {
-      axios.defaults.headers.Cookie = cookie;
-    }
-
-    // await context.store.dispatch(loadUserComments);
     await context.store.dispatch(
       loadPopularPosts({
         limit: 3,
