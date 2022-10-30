@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/osamhack2022-v2/WEB_MILITARY_STORY/master/Front-end/public/favicon.ico" height="250px" />
 
-군 장병 커뮤니티 웹 플랫폼 Military Story는 자유롭게 글을 업로드하여 공유하고, 군생활을 하는 데에 있어 도움을 서로 받고 줄 수 있도록 수 있는 웹 커뮤니티입니다.
+군 장병 커뮤니티 웹 플랫폼 Military Story는 자유롭게 글을 업로드하여 공유하고, 군생활을 하는 데에 있어 도움을 서로 받고 줄 수 있도록 수 있는 익명 웹 커뮤니티입니다.
 
 ## 프로젝트 소개
 
